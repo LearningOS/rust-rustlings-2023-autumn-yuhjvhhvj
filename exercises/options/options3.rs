@@ -13,10 +13,11 @@ struct Point {
 fn main() {
     let y: Option<Point> = Some(Point { x: 100, y: 200 });
 
-    let y=match y {
+    //let y=
+    match &y {
         Some(p) => {
-            println!("Co-ordinates are {},{} ", p.x, p.y);
-            Some(p)
+            println!("Co-ordinates are {},{} ", p.x, p.y)
+            //Some(p)
         }
         _ => panic!("no match!")
     };
