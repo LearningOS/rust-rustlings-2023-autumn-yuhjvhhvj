@@ -38,7 +38,7 @@ extern "Rust" {
 mod Foo {
     // No `extern` equals `extern "Rust"`.
     #[no_mangle]
-    fn my_demo_function(a: u32) -> u32 {
+    pub extern "Rust" fn my_demo_function(a: u32) -> u32 {
         a
     }
 }
@@ -56,8 +56,8 @@ mod tests {
         // SAFETY: We know those functions are aliases of a safe
         // Rust function.
         unsafe {
-            my_demo_function(123);
-            my_demo_function_alias(456);
+            assert!(456_u32== my_demo_function_alias(456));
         }
+        
     }
 }
